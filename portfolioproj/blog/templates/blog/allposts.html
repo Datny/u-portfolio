@@ -52,11 +52,25 @@
 </header>
 
 <main role="main">
+    <h1 class="text-center pt-4">Blog</h1>
     <div class="container">
-        <h1 class="text-center pt-4">Blog</h1>
         <br/><br/>
-        <h2>Latest post</h2>
+        <h2>Latest Posts</h2>
         <hr/>
+        {% for post in posts.all %}
+
+
+        <h3><a href=""><h3>{{post.title}}</h3></a>
+            {{post.pub_date}}
+            <br/>
+            <img src=" {{post.image.url}}" class="img-fluid " alt="Responsive image" width="200" height="200" />
+            <br/>
+            <p>{{post.body_text}}</p>
+
+
+
+
+            {% endfor %}
     </div>
 </main>
 
