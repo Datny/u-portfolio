@@ -6,3 +6,15 @@ class Blog(models.Model):
     pub_date = models.DateTimeField()
     body_text =models.TextField()
     image = models.ImageField(upload_to="images/")
+
+    def summary(self):
+        if len(self.body_text) > 99:
+            return self.body_text[:100]+"..."
+        else:
+            return self.body_text[:100]
+
+    def pub_date_modified(self):
+        return self.pub_date.strftime("%Y-%m-%d")
+
+    def __str__(self):
+        return self.title
